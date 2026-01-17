@@ -1,0 +1,8 @@
+{
+  "name": "Portal Fazenda Vitória Francisco",
+  "description": "Portal institucional e comercial focado em Avicultura, Agricultura, Suinocultura e Importação de Insumos em Angola.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
