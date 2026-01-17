@@ -21,6 +21,20 @@ export const MOCK_PRODUCTS: Product[] = [
     name: 'Fertilizante NPK 15-15-15',
     category: Category.IMPORTACAO,
     description: 'Insumo de alta qualidade importado da Europa para solos tropicais.',
+    longDescription: 'O Fertilizante NPK 15-15-15 é uma mistura granular premium projetada para fornecer nutrição equilibrada a uma ampla variedade de culturas. Sua solubilidade superior garante que as plantas absorvam os nutrientes de forma rápida e eficiente, mesmo em condições de solo desafiadoras típicas de Angola.',
+    specifications: [
+      'Nitrogênio (N): 15%',
+      'Fósforo (P2O5): 15%',
+      'Potássio (K2O): 15%',
+      'Granulometria: 2-4mm',
+      'Solubilidade: >95%'
+    ],
+    features: [
+      'Liberação controlada',
+      'Aumenta a resistência a pragas',
+      'Ideal para Milho, Soja e Hortaliças',
+      'Embalagem reforçada para transporte'
+    ],
     price: 'Sob Consulta',
     image: 'https://images.unsplash.com/photo-1628352081506-83c43123ed6d?auto=format&fit=crop&q=80&w=800'
   },
@@ -37,6 +51,28 @@ export const MOCK_PRODUCTS: Product[] = [
     category: Category.AGRICULTURA,
     description: 'Produção em larga escala com técnicas de agricultura de precisão.',
     image: 'https://images.unsplash.com/photo-1551730459-92db2a308d6a?auto=format&fit=crop&q=80&w=800'
+  },
+  {
+    id: '5',
+    name: 'Trator MF-4707 Heavy Duty',
+    category: Category.IMPORTACAO,
+    description: 'Potência e durabilidade para preparo de solo em grandes extensões.',
+    longDescription: 'O MF-4707 é o parceiro ideal para o produtor que busca robustez sem abrir mão da tecnologia. Equipado com motor de baixo consumo e transmissão sincronizada, ele oferece o melhor torque da categoria para operações de aração e gradagem pesada.',
+    specifications: [
+      'Motor: AGCO Power 3 Cilindros Turbo',
+      'Potência: 75 cv',
+      'Transmissão: 12x12 Syncro Shuttle',
+      'Capacidade de levante: 3000 kg',
+      'Tração: 4x4'
+    ],
+    features: [
+      'Ar condicionado de alta performance',
+      'Fácil manutenção em campo',
+      'Baixo consumo de combustível',
+      'Pneus de alta flutuação inclusos'
+    ],
+    price: 'Sob Consulta',
+    image: 'https://images.unsplash.com/photo-1592919016383-40749ec3ecf1?auto=format&fit=crop&q=80&w=800'
   }
 ];
 
