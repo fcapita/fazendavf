@@ -89,10 +89,12 @@ const Importacao: React.FC = () => {
               onClick={() => setSelectedProduct(product)}
               className="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer group"
             >
-              <div className="h-56 overflow-hidden relative">
+              <div className="h-56 overflow-hidden relative bg-gray-100">
                 <img
                   src={product.image}
                   alt={product.name}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
@@ -136,6 +138,8 @@ const Importacao: React.FC = () => {
                 <img 
                   src={selectedProduct.image} 
                   alt={selectedProduct.name}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
               </div>
