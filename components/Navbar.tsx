@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Menu, X, Leaf, ShoppingCart, LayoutDashboard } from 'lucide-react';
+import { Menu, X, Leaf, LayoutDashboard } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
@@ -21,10 +21,10 @@ const Navbar: React.FC = () => {
         <div className="flex justify-between h-20">
           <div className="flex items-center">
             <Link to="/" className="flex items-center space-x-2">
-              <Leaf className="h-8 w-8 text-[#4A5D23]" />
+              <Leaf className="h-8 w-8 text-brand-moss" />
               <div className="flex flex-col">
-                <span className="text-xl font-bold text-[#2D3B16] leading-tight">Fazenda Vitória</span>
-                <span className="text-xs tracking-widest text-[#DAA520] font-semibold uppercase">Francisco</span>
+                <span className="text-xl font-bold text-brand-dark leading-tight">Fazenda Vitória</span>
+                <span className="text-xs tracking-widest text-brand-gold font-semibold uppercase">Francisco</span>
               </div>
             </Link>
           </div>
@@ -34,7 +34,7 @@ const Navbar: React.FC = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                className="text-[#2D3B16] hover:text-[#DAA520] font-medium transition-colors flex items-center"
+                className="text-brand-dark hover:text-brand-gold font-medium transition-colors flex items-center"
               >
                 {item.icon}
                 {item.name}
@@ -42,7 +42,7 @@ const Navbar: React.FC = () => {
             ))}
             <a
               href="#contato"
-              className="bg-[#4A5D23] text-white px-5 py-2 rounded-lg font-semibold hover:bg-[#2D3B16] transition-colors"
+              className="bg-brand-moss text-white px-5 py-2 rounded-lg font-semibold hover:bg-brand-dark transition-colors"
             >
               Fale Conosco
             </a>
@@ -51,7 +51,7 @@ const Navbar: React.FC = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-[#2D3B16] p-2"
+              className="text-brand-dark p-2"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -67,7 +67,7 @@ const Navbar: React.FC = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                className="block px-3 py-2 text-base font-medium text-[#2D3B16] hover:bg-gray-50 rounded-md"
+                className="block px-3 py-2 text-base font-medium text-brand-dark hover:bg-gray-50 rounded-md"
                 onClick={() => setIsOpen(false)}
               >
                 <div className="flex items-center">

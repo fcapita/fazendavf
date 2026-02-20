@@ -17,7 +17,6 @@ const App: React.FC = () => {
             <Route path="/" element={<Home />} />
             <Route path="/importacao" element={<Importacao />} />
             <Route path="/dashboard" element={<Dashboard />} />
-            {/* Outras rotas seriam similares, usando o mesmo padrão visual */}
             <Route path="/avicultura" element={<div className="p-20 text-center"><h1 className="text-4xl font-bold">Página em Construção: Avicultura</h1><p className="mt-4">Foco em produção de frangos e ovos em Angola.</p></div>} />
             <Route path="/agricultura" element={<div className="p-20 text-center"><h1 className="text-4xl font-bold">Página em Construção: Agricultura</h1><p className="mt-4">Inovações em milho e soja sazonais.</p></div>} />
             <Route path="/suinocultura" element={<div className="p-20 text-center"><h1 className="text-4xl font-bold">Página em Construção: Suinocultura</h1><p className="mt-4">Genética de alta performance.</p></div>} />
@@ -41,10 +40,9 @@ const App: React.FC = () => {
                   Transformando o setor agrícola em Angola com inovação, ética e compromisso com o produtor.
                 </p>
                 <div className="flex space-x-4">
-                  {/* Social Icons Placeholder */}
-                  <div className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-[#DAA520] transition-colors cursor-pointer border border-white/10">FB</div>
-                  <div className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-[#DAA520] transition-colors cursor-pointer border border-white/10">IG</div>
-                  <div className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-[#DAA520] transition-colors cursor-pointer border border-white/10">LI</div>
+                  <a href="#" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-[#DAA520] transition-colors cursor-pointer border border-white/10">FB</a>
+                  <a href="#" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-[#DAA520] transition-colors cursor-pointer border border-white/10">IG</a>
+                  <a href="#" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-[#DAA520] transition-colors cursor-pointer border border-white/10">LI</a>
                 </div>
               </div>
               
@@ -63,7 +61,6 @@ const App: React.FC = () => {
                 <ul className="space-y-4 text-gray-400">
                   <li><a href="#" className="hover:text-white transition-colors">Política de Privacidade</a></li>
                   <li><a href="#" className="hover:text-white transition-colors">Termos de Uso</a></li>
-                  <li><a href="#" className="hover:text-white transition-colors">Licenças Agrícolas</a></li>
                 </ul>
               </div>
 
