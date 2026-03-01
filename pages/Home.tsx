@@ -13,6 +13,7 @@ const Home: React.FC = () => {
           <img
             src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=2000"
             alt="Fazenda"
+            referrerPolicy="no-referrer"
             className="w-full h-full object-cover brightness-[0.4]"
           />
         </div>
@@ -82,8 +83,8 @@ const Home: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {MOCK_NEWS.map((item) => (
               <div key={item.id} className="bg-white/5 rounded-2xl overflow-hidden border border-white/10 flex flex-col md:flex-row">
-                <div className="w-full md:w-48 h-48">
-                  <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
+                <div className="w-full md:w-48 h-48 flex-shrink-0">
+                  <img src={item.image} alt={item.title} referrerPolicy="no-referrer" className="w-full h-full object-cover" />
                 </div>
                 <div className="p-6 flex-1">
                   <span className="text-[#DAA520] text-sm font-bold uppercase tracking-widest">{item.category}</span>
@@ -118,6 +119,7 @@ const Home: React.FC = () => {
               <img
                 src="https://images.unsplash.com/photo-1471193945509-9ad0617afabf?auto=format&fit=crop&q=80&w=800"
                 alt="Insumos"
+                referrerPolicy="no-referrer"
                 className="w-full max-w-sm rounded-3xl shadow-2xl"
               />
               <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl border border-gray-100">
