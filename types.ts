@@ -10,6 +10,7 @@ export interface Product {
   id: string;
   name: string;
   category: Category;
+  subCategory?: string; // Campo opcional para subcategorias (ex: Fertilizantes, Maquinaria)
   description: string;
   longDescription?: string;
   specifications?: string[];

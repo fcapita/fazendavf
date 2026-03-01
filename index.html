@@ -7,17 +7,15 @@
     <title>Fazenda Vitória Francisco | Inovação e Tradição no Campo</title>
     <meta name="description" content="Fazenda Vitória Francisco - Líder em Avicultura em Angola, Importação de fertilizantes e Suinocultura de alta linhagem." />
     
-    <!-- Content Security Policy (CSP) Atualizada -->
-    <!-- Adicionado 'unsafe-inline' ao script-src para permitir o funcionamento do importmap -->
+    <!-- Content Security Policy (CSP) otimizada para produção -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://esm.sh https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; connect-src 'self' https://generativelanguage.googleapis.com https://esm.sh; img-src 'self' data: https://images.unsplash.com; font-src 'self' https://fonts.gstatic.com; frame-src 'none'; object-src 'none';">
 
-    <!-- Tailwind CSS v2 Core (Production Stable) -->
+    <!-- Tailwind CSS v2 Core -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     
     <style>
-      /* Brand Color Variables & Utilities */
       :root {
         --moss-green: #4A5D23;
         --gold: #DAA520;
@@ -30,29 +28,20 @@
         margin: 0;
         padding: 0;
         background-color: var(--light-gray);
+        -webkit-font-smoothing: antialiased;
       }
 
-      h1, h2, h3 {
-        font-family: 'Playfair Display', serif;
-      }
-
-      #root {
-        min-height: 100vh;
-      }
+      h1, h2, h3 { font-family: 'Playfair Display', serif; }
+      #root { min-height: 100vh; }
 
       .bg-brand-moss { background-color: var(--moss-green); }
       .text-brand-moss { color: var(--moss-green); }
-      .border-brand-moss { border-color: var(--moss-green); }
-      
       .bg-brand-gold { background-color: var(--gold); }
       .text-brand-gold { color: var(--gold); }
-      
       .bg-brand-dark { background-color: var(--dark-green); }
       .text-brand-dark { color: var(--dark-green); }
 
       .aspect-video { aspect-ratio: 16 / 9; }
-      .aspect-square { aspect-ratio: 1 / 1; }
-
       .line-clamp-2 {
         display: -webkit-box;
         -webkit-line-clamp: 2;

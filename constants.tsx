@@ -20,6 +20,7 @@ export const MOCK_PRODUCTS: Product[] = [
     id: '2',
     name: 'Fertilizante NPK 15-15-15',
     category: Category.IMPORTACAO,
+    subCategory: 'Fertilizantes',
     description: 'Insumo de alta qualidade importado da Europa para solos tropicais.',
     longDescription: 'O Fertilizante NPK 15-15-15 é uma mistura granular premium projetada para fornecer nutrição equilibrada a uma ampla variedade de culturas. Sua solubilidade superior garante que as plantas absorvam os nutrientes de forma rápida e eficiente, mesmo em condições de solo desafiadoras típicas de Angola.',
     specifications: [
@@ -56,6 +57,7 @@ export const MOCK_PRODUCTS: Product[] = [
     id: '5',
     name: 'Trator MF-4707 Heavy Duty',
     category: Category.IMPORTACAO,
+    subCategory: 'Maquinaria',
     description: 'Potência e durabilidade para preparo de solo em grandes extensões.',
     longDescription: 'O MF-4707 é o parceiro ideal para o produtor que busca robustez sem abrir mão da tecnologia. Equipado com motor de baixo consumo e transmissão sincronizada, ele oferece o melhor torque da categoria para operações de aração e gradagem pesada.',
     specifications: [

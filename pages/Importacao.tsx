@@ -12,10 +12,22 @@ const Importacao: React.FC = () => {
   const categories = ['Todos', 'Fertilizantes', 'Sementes', 'Maquinaria', 'Implementos'];
 
   const filteredProducts = MOCK_PRODUCTS.filter(p => {
-    const matchesCategory = Category.IMPORTACAO === p.category;
+    // Primeiro garantimos que o produto é da categoria global de IMPORTAÇÃO
+    const isImportProduct = Category.IMPORTACAO === p.category;
+    
+    // Verificamos o filtro de subcategoria (Fertilizantes, Sementes, etc)
+    const matchesSubCategory = filter === 'Todos' || p.subCategory === filter;
+    
+    // Verificamos a busca textual
     const matchesSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesCategory && matchesSearch;
+    
+    return isImportProduct && matchesSubCategory && matchesSearch;
   });
+
+  const handleFilterChange = (cat: string) => {
+    setFilter(cat);
+    setSearchQuery(''); // Limpa a busca ao trocar de categoria conforme solicitado
+  };
 
   useEffect(() => {
     if (selectedProduct) {
@@ -33,7 +45,6 @@ const Importacao: React.FC = () => {
     const formData = new FormData(e.currentTarget);
     const nome = formData.get('nome') as string;
     
-    // Validação simples de segurança contra injeção de script
     if (/[<>]/.test(nome)) {
       alert('Por favor, utilize apenas caracteres válidos no nome.');
       return;
@@ -60,7 +71,7 @@ const Importacao: React.FC = () => {
             {categories.map(cat => (
               <button
                 key={cat}
-                onClick={() => setFilter(cat)}
+                onClick={() => handleFilterChange(cat)}
                 className={`px-6 py-2 rounded-lg text-sm font-semibold transition-all whitespace-nowrap ${
                   filter === cat ? 'bg-brand-moss text-white shadow-md' : 'text-gray-500 hover:bg-gray-50'
                 }`}
@@ -75,7 +86,7 @@ const Importacao: React.FC = () => {
               type="text"
               placeholder="Buscar insumo..."
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value.slice(0, 50))} // Limite de busca para performance/segurança
+              onChange={(e) => setSearchQuery(e.target.value.slice(0, 50))}
               className="w-full pl-10 pr-4 py-3 bg-white border border-gray-200 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-moss"
             />
           </div>
@@ -83,42 +94,54 @@ const Importacao: React.FC = () => {
 
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {filteredProducts.map(product => (
-            <div 
-              key={product.id} 
-              onClick={() => setSelectedProduct(product)}
-              className="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer group"
-            >
-              <div className="h-56 overflow-hidden relative bg-gray-100">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <span className="bg-white bg-opacity-90 text-brand-moss px-4 py-2 rounded-full font-bold text-sm">Ver Detalhes</span>
+          {filteredProducts.length > 0 ? (
+            filteredProducts.map(product => (
+              <div 
+                key={product.id} 
+                onClick={() => setSelectedProduct(product)}
+                className="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer group"
+              >
+                <div className="h-56 overflow-hidden relative bg-gray-100">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span className="bg-white bg-opacity-90 text-brand-moss px-4 py-2 rounded-full font-bold text-sm">Ver Detalhes</span>
+                  </div>
                 </div>
-              </div>
-              <div className="p-6">
-                <div className="flex justify-between items-start mb-2">
-                  <h3 className="text-xl font-bold text-brand-dark">{product.name}</h3>
-                  <span className="bg-green-50 text-brand-moss text-xs font-black uppercase px-2 py-1 rounded">Disponível</span>
-                </div>
-                <p className="text-gray-500 text-sm mb-6 line-clamp-2">{product.description}</p>
-                <div className="flex items-center justify-between mt-auto">
-                  <span className="text-brand-gold font-bold">Sob Consulta</span>
-                  <div className="bg-brand-moss text-white p-3 rounded-xl hover:bg-brand-dark transition-colors shadow-lg">
-                    <Info className="w-5 h-5" />
+                <div className="p-6">
+                  <div className="flex justify-between items-start mb-2">
+                    <h3 className="text-xl font-bold text-brand-dark">{product.name}</h3>
+                    <span className="bg-green-50 text-brand-moss text-xs font-black uppercase px-2 py-1 rounded">Disponível</span>
+                  </div>
+                  <p className="text-gray-500 text-sm mb-6 line-clamp-2">{product.description}</p>
+                  <div className="flex items-center justify-between mt-auto">
+                    <span className="text-brand-gold font-bold">Sob Consulta</span>
+                    <div className="bg-brand-moss text-white p-3 rounded-xl hover:bg-brand-dark transition-colors shadow-lg">
+                      <Info className="w-5 h-5" />
+                    </div>
                   </div>
                 </div>
               </div>
+            ))
+          ) : (
+            <div className="col-span-full py-20 text-center bg-white rounded-3xl border-2 border-dashed border-gray-200">
+              <p className="text-gray-500 font-medium text-lg">Nenhum produto encontrado nesta categoria.</p>
+              <button 
+                onClick={() => handleFilterChange('Todos')}
+                className="mt-4 text-brand-moss font-bold hover:underline"
+              >
+                Ver todos os insumos
+              </button>
             </div>
-          ))}
+          )}
         </div>
 
-        {/* Product Modal */}
+        {/* Modal de Produto */}
         {selectedProduct && (
           <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
             <div 
@@ -147,7 +170,7 @@ const Importacao: React.FC = () => {
               <div className="w-full md:w-1/2 p-8 md:p-12 overflow-y-auto bg-white flex flex-col">
                 <div className="mb-8">
                   <span className="bg-green-50 text-brand-moss text-xs font-black uppercase px-3 py-1 rounded-full mb-4 inline-block">
-                    {selectedProduct.category}
+                    {selectedProduct.subCategory || 'Insumo'}
                   </span>
                   <h2 className="text-3xl md:text-4xl font-bold text-brand-dark mb-4">{selectedProduct.name}</h2>
                   <p className="text-brand-gold text-xl font-bold mb-6">Preço Sob Consulta</p>
