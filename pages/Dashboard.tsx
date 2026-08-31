@@ -8,7 +8,7 @@ import {
   Package, TrendingUp, Users, DollarSign, 
   Search, Filter, MoreHorizontal, Download 
 } from 'lucide-react';
-import { MOCK_ORDERS } from '../constants';
+import { MOCK_ORDERS } from './../src/constants';
 
 const Dashboard: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
