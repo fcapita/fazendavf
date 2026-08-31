@@ -2,7 +2,7 @@
 import React from 'react';
 import { ArrowRight, ChevronRight, Truck, Microscope, Beef, Bird, Wheat } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { MOCK_NEWS, MOCK_PRODUCTS } from '../constants';
+import { MOCK_NEWS, MOCK_PRODUCTS } from './../src/constants';
 
 const Home: React.FC = () => {
   return (
