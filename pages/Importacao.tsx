@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
-import { MOCK_PRODUCTS } from '../constants';
-import { Category, Product } from '../types';
+import { MOCK_PRODUCTS } from './../src/constants';
+import { Category, Product } from './../src/types';
 import { Search, Info, X, CheckCircle2, MessageSquare, Truck } from 'lucide-react';
 
 const Importacao: React.FC = () => {
